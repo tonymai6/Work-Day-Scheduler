@@ -13,7 +13,7 @@ $(document).ready(function () {
       
       localStorage.setItem(time, text);
   })
-  //load any saved data from LocalStorage - do this for each hour created. Should follow html 24 hour to 12 hour conversion.
+  //load any saved data from LocalStorage - 24 hour to 12 hour conversion.
   $("#hour8 .description").val(localStorage.getItem("hour8"));
   $("#hour9 .description").val(localStorage.getItem("hour9"));
   $("#hour10 .description").val(localStorage.getItem("hour10"));
@@ -25,5 +25,30 @@ $(document).ready(function () {
   $("#hour16 .description").val(localStorage.getItem("hour16"));
   $("#hour17 .description").val(localStorage.getItem("hour17"));
 
-  
+  function hourTracker() {
+        var currentHour = moment().hour(); // use of moment.js
+
+    $(".time-block").each(function () {
+        var blockHour = parseInt($(this).attr("id").split("hour")[1]);
+        console.log( blockHour, currentHour)
+
+        //used to check if the time has passed
+        if (blockHour < currentHour) {
+            $(this).addClass("past");
+            $(this).removeClass("future");
+            $(this).removeClass("present");
+        }
+        else if (blockHour === currentHour) {
+            $(this).removeClass("past");
+            $(this).addClass("present");
+            $(this).removeClass("future");
+        }
+        else {
+            $(this).removeClass("present");
+            $(this).removeClass("past");
+            $(this).addClass("future");
+        }
+    })
+  }
+  hourTracker(); //used to re-run function
 })
