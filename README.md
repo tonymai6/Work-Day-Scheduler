@@ -13,3 +13,4 @@ Used html to build the fondation for the schedule. Javascript was used to build 
 https://tonymai6.github.io/Work-Day-Scheduler/
 
 ## Screenshot
+![workday](https://user-images.githubusercontent.com/114831060/201822537-67586132-b275-4f6c-87ea-5951d218b0bd.jpg)
